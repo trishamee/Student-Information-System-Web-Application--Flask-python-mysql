@@ -43,7 +43,11 @@ def stud_list():
 
 @routes.route('/students/add-student', methods=['GET', 'POST'])
 def stud_add():
+    available_courses = []
+    for element in model.course.all():
+        available_courses.append(element[0])
     form = StudentForm()
+    form.course_code.choices = available_courses
     if form.validate():
         student = model.student(id= form.id.data, name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
         student.add()
@@ -66,7 +70,11 @@ def course_list():
 
 @routes.route('/courses/add-course', methods=['GET', 'POST'])
 def course_add():
+    available_colleges = []
+    for element in model.college.all():
+        available_colleges.append(element[0])
     form = CourseForm()
+    form.college_code.choices = available_colleges
     if form.validate():
         course = model.course(course_code= form.course_code.data, course_name = form.course_name.data, college_code = form.college_code.data)
         course.add()
