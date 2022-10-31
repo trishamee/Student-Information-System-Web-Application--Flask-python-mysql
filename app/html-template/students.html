@@ -126,8 +126,8 @@
 
                                     {% for student in data %}
                                     <tr>
-                                       <td>{{student[0]}}</td>
-                                       <td><a href = "{{ url_for('.stud_open') }}">{{student[1]}}</a></td>
+                                       <td><a href = "{{ url_for('.stud_open', id = student[0] ) }}">{{student[0]}}</a></td>
+                                       <td>{{student[1]}}</td>
                                        <td>{{student[2]}}</td>
                                        <td>{{student[3]}}</td>
                                        <td>{{student[4]}}</td>
@@ -136,6 +136,7 @@
                                           <div class="actions">
                                           <a href="{{ url_for('.stud_edit') }}" class="btn btn-sm bg-success-light mr-2">
                                              <i class="fas fa-pen"></i>
+
                                              </a>
                                           <a href="#" class="btn btn-sm bg-danger-light">
                                              <i class="fas fa-trash"></i>

@@ -20,10 +20,19 @@ class student(object):
     def edit(self, id):
         cursor = mysql.connection.cursor()
         sql = f"UPDATE student SET name=%s, course_code = %s, year = %s , gender = %s WHERE id=%s \
-                VALUES('{self.name}','{self.course_code}', '{self.year}', '{self.gender}', {self.id}')" 
+                VALUES('{self.name}','{self.course_code}', '{self.year}', '{self.gender}', '{self.id}')" 
 
         cursor.execute(sql)
         mysql.connection.commit()
+
+    @classmethod
+    def open(cls, id):
+        cursor = mysql.connection.cursor()
+        sql = f"SELECT * from student where id = '{id}' "
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        print(result)
+        return result
 
     @classmethod
     def all(cls):

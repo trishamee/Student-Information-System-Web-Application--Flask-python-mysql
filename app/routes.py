@@ -58,9 +58,11 @@ def stud_add():
 def stud_edit():
     return render_template('edit-student.html')
 
-@routes.route('/students/student-details', methods=['GET', 'POST'])
-def stud_open():
-    return render_template('student-details.html')
+@routes.route('/students/student-details/<id>', methods=['GET', 'POST'])
+def stud_open(id):
+    print(id)
+    details = model.student.open(id)
+    return render_template('student-details.html', data = details)
 
 #Courses
 @routes.route('/courses', methods=['GET', 'POST'])
