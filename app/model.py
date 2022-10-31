@@ -54,7 +54,7 @@ class college(object):
     def add(self):
         cursor = mysql.connection.cursor()
         sql = f"INSERT INTO colleges(college_code, college_name) \
-                VALUES('{self.collge_code}','{self.college_name}')" 
+                VALUES('{self.college_code}','{self.college_name}')" 
 
         cursor.execute(sql)
         mysql.connection.commit()

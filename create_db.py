@@ -18,7 +18,6 @@ if result:
 else:
      # there are no tables 
     mycursor.execute("CREATE TABLE courses(course_code VARCHAR(100) NOT NULL,course_name VARCHAR(100), college_code VARCHAR(100), PRIMARY KEY (course_code))")
-    mycursor.execute("INSERT INTO courses(course_code, course_name, college_code) VALUES ('None', 'None', 'None')")
     mysqldb.commit()
     lastid = mycursor.lastrowid
 mysqldb.close()
@@ -47,7 +46,6 @@ if result:
 else:
      # there are no tables 
     mycursor.execute("CREATE TABLE colleges(college_code VARCHAR(100) NOT NULL,college_name VARCHAR(100), PRIMARY KEY (college_code))")
-    mycursor.execute("INSERT INTO colleges(college_code, college_name) VALUES ('None', 'None')")
     mysqldb.commit()
     lastid = mycursor.lastrowid
 mysqldb.close()
