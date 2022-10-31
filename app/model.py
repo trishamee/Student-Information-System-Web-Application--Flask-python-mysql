@@ -31,7 +31,6 @@ class student(object):
         sql = f"SELECT * from student where id = '{id}' "
         cursor.execute(sql)
         result = cursor.fetchall()
-        print(result)
         return result
 
     @classmethod
@@ -77,6 +76,14 @@ class college(object):
         mysql.connection.commit()
 
     @classmethod
+    def open(cls, id):
+        cursor = mysql.connection.cursor()
+        sql = f"SELECT * from colleges where college_code = '{id}' "
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return result
+
+    @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
 
@@ -118,7 +125,15 @@ class course(object):
 
         cursor.execute(sql)
         mysql.connection.commit()
-    
+
+    @classmethod
+    def open(cls, id):
+        cursor = mysql.connection.cursor()
+        sql = f"SELECT * from courses where course_code = '{id}' "
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return result
+
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
@@ -126,6 +141,7 @@ class course(object):
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
+        
 
     @classmethod
     def delete(cls,course_code):

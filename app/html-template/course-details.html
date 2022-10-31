@@ -106,27 +106,24 @@
 <div class="row">
 <div class="col-md-12">
 <div class="about-info">
+   {% for info in data %}
+
 <ul>
 <li>
-<span class="title-span">ID Number : </span>
-<span class="info-span">2020-XXXX</span>
+<span class="title-span">Course Code </span>
+<span class="info-span">{{info[0]}}</span>
 </li>
 <li>
-<span class="title-span">Full Name : </span>
-<span class="info-span">Juan Cruz</span>
+<span class="title-span">Course Name : </span>
+<span class="info-span">{{info[1]}}</span>
 </li>
-<li>
-<span class="title-span">Year : </span>
-<span class="info-span">3</span>
+<li> 
+<span class="title-span">College Code: </span>
+<span class="info-span">{{info[2]}}</span>
 </li>
-<li>
-<span class="title-span">Gender : </span>
-<span class="info-span">Male</span>
-</li>
-<li>
-<span class="title-span">Course : </span>
-<span class="info-span">Bachelor of Science in Computer Science</span>
-</li>
+
+{% endfor %}
+
 </ul>
 </div>
 </div>

@@ -60,7 +60,6 @@ def stud_edit():
 
 @routes.route('/students/student-details/<id>', methods=['GET', 'POST'])
 def stud_open(id):
-    print(id)
     details = model.student.open(id)
     return render_template('student-details.html', data = details)
 
@@ -87,10 +86,10 @@ def course_add():
 def course_edit():
     return render_template('edit-course.html')
 
-@routes.route('/courses/course-details', methods=['GET', 'POST'])
-def course_open():
-    return render_template('course-details.html')
-
+@routes.route('/courses/course-details/<id>', methods=['GET', 'POST'])
+def course_open(id):
+    details = model.course.open(id)
+    return render_template('course-details.html', data = details)
 
 #Colleges
 @routes.route('/colleges', methods=['GET', 'POST'])
@@ -111,6 +110,7 @@ def college_add():
 def college_edit():
     return render_template('edit-college.html')
 
-@routes.route('/colleges/college-details', methods=['GET', 'POST'])
-def college_open():
-    return render_template('college-details.html')
+@routes.route('/colleges/college-details/<id>', methods=['GET', 'POST'])
+def college_open(id):
+    details = model.college.open(id)
+    return render_template('college-details.html', data = details)

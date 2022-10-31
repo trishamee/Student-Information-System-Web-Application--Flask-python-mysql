@@ -127,7 +127,7 @@
 
                                     {% for course in data %}
                                     <tr>
-                                       <td><a href = "{{ url_for('.course_open') }}">{{course[0]}}</a></td>
+                                       <td><a href = "{{ url_for('.course_open', id = course[0] ) }}">{{course[0]}}</a></td>
                                        <td>{{course[1]}}</td>
                                        <td>{{course[2]}}</td>
                                        <td>

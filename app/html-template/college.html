@@ -129,7 +129,7 @@
 
                                  {% for college in data %}
                                  <tr>
-                                    <td><a href = "{{ url_for('.college_open') }}">{{college[0]}}</a></td>
+                                    <td><a href = "{{ url_for('.college_open', id = college[0] ) }}">{{college[0]}}</a></td>
                                     <td>{{college[1]}}</td>
                                     <td>
                                     <td class="text-right">

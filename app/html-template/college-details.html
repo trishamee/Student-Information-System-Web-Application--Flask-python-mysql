@@ -108,24 +108,15 @@
 <div class="about-info">
 <ul>
 <li>
-<span class="title-span">ID Number : </span>
-<span class="info-span">2020-XXXX</span>
+   {% for info in data %}
+<span class="title-span">College Code : </span>
+<span class="info-span">{{info[0]}}</span>
 </li>
 <li>
-<span class="title-span">Full Name : </span>
-<span class="info-span">Juan Cruz</span>
-</li>
-<li>
-<span class="title-span">Year : </span>
-<span class="info-span">3</span>
-</li>
-<li>
-<span class="title-span">Gender : </span>
-<span class="info-span">Male</span>
-</li>
-<li>
-<span class="title-span">Course : </span>
-<span class="info-span">Bachelor of Science in Computer Science</span>
+<span class="title-span">College Name : </span>
+<span class="info-span">{{info[1]}}</span>
+
+{% endfor %}
 </li>
 </ul>
 </div>
