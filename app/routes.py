@@ -51,7 +51,7 @@ def stud_add():
     if form.validate():
         student = model.student(id= form.id.data, name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
         student.add()
-        return redirect('/')
+        return redirect('/students')
     return render_template('add-student.html', form = form)
 
 @routes.route('/students/edit-student', methods=['GET', 'POST'])
@@ -78,7 +78,7 @@ def course_add():
     if form.validate():
         course = model.course(course_code= form.course_code.data, course_name = form.course_name.data, college_code = form.college_code.data)
         course.add()
-        return redirect('/')
+        return redirect('/courses')
     return render_template('add-course.html', form = form)
 
 @routes.route('/courses/edit-course', methods=['GET', 'POST'])
@@ -102,7 +102,7 @@ def college_add():
     if form.validate():
         college = model.college(college_code= form.college_code.data, college_name= form.college_name.data)
         college.add()
-        return redirect('/')
+        return redirect('/colleges')
     return render_template('add-college.html', form = form)
     
 @routes.route('/colleges/edit-college', methods=['GET', 'POST'])
