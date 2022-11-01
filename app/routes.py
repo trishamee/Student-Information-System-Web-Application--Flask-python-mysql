@@ -79,6 +79,11 @@ def stud_open(id):
     details = model.student.open(id)
     return render_template('student-details.html', data = details)
 
+@routes.route('/students/delete/ <id>', methods=['GET','POST'])
+def stud_delete(id):
+    model.student.delete(id)
+    return redirect('/students')
+   
 #Courses
 @routes.route('/courses', methods=['GET', 'POST'])
 def course_list():
@@ -121,6 +126,12 @@ def course_open(id):
     details = model.course.open(id)
     return render_template('course-details.html', data = details)
 
+@routes.route('/courses/delete/ <id>', methods=['GET','POST'])
+def course_delete(id):
+    model.course.delete(id)
+    return redirect('/courses')
+
+
 #Colleges
 @routes.route('/colleges', methods=['GET', 'POST'])
 def college_list():
@@ -153,3 +164,8 @@ def college_edit(id):
 def college_open(id):
     details = model.college.open(id)
     return render_template('college-details.html', data = details)
+
+@routes.route('/colleges/delete/ <id>', methods=['GET','POST'])
+def college_delete(id):
+    model.college.delete(id)
+    return redirect('/colleges')

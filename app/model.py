@@ -89,10 +89,10 @@ class college(object):
         return result
 
     @classmethod
-    def delete(cls,college_code):
+    def delete(cls,id):
         try:
             cursor = mysql.connection.cursor()
-            sql = f"DELETE from colleges where college_code= {college_code}"
+            sql = f"DELETE from colleges where college_code= '{id}'"
             cursor.execute(sql)
             mysql.connection.commit()
             return True
@@ -138,10 +138,10 @@ class course(object):
         
 
     @classmethod
-    def delete(cls,course_code):
+    def delete(cls,id):
         try:
             cursor = mysql.connection.cursor()
-            sql = f"DELETE from courses where course_code= {course_code}"
+            sql = f"DELETE from courses where course_code= '{id}'"
             cursor.execute(sql)
             mysql.connection.commit()
             return True
