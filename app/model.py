@@ -19,9 +19,7 @@ class student(object):
 
     def edit(self, id):
         cursor = mysql.connection.cursor()
-        sql = f"UPDATE student SET name=%s, course_code = %s, year = %s , gender = %s WHERE id=%s \
-                VALUES('{self.name}','{self.course_code}', '{self.year}', '{self.gender}', '{self.id}')" 
-
+        sql = f"UPDATE student SET name='{self.name}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}' WHERE id='{id}' " 
         cursor.execute(sql)
         mysql.connection.commit()
 

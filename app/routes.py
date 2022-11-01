@@ -6,7 +6,7 @@
 
 #gikan sa flask demo:
 from flask import Blueprint,render_template, redirect, request, jsonify
-from app.forms import StudentForm, CourseForm, CollegeForm
+from app.forms import StudentEdit, StudentForm, CourseForm, CollegeForm
 import app.model as model
 
 #from . import user_bp
@@ -54,9 +54,27 @@ def stud_add():
         return redirect('/students')
     return render_template('add-student.html', form = form)
 
-@routes.route('/students/edit-student', methods=['GET', 'POST'])
-def stud_edit():
-    return render_template('edit-student.html')
+@routes.route('/students/edit-student/<id>', methods=['GET', 'POST'])
+def stud_edit(id):
+    form = StudentForm()
+    details = model.student.open(id)
+    available_courses = []
+    for element in model.course.all():
+        available_courses.append(element[0])
+    form.course_code.choices = available_courses
+    if request.method == 'GET':
+        form.id.data = details[0][0]
+        form.name.data = details[0][1]
+        form.course_code.data = details[0][2]
+        form.year.data = details[0][3]
+        form.gender.data = details[0][4]
+        return render_template('edit-student.html', form = form)
+    elif request.method == 'POST' and form.validate():
+        student = model.student( name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
+        student.edit(id)
+        return redirect('/students')
+
+
 
 @routes.route('/students/student-details/<id>', methods=['GET', 'POST'])
 def stud_open(id):
