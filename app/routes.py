@@ -98,9 +98,23 @@ def course_add():
         return redirect('/courses')
     return render_template('add-course.html', form = form)
 
-@routes.route('/courses/edit-course', methods=['GET', 'POST'])
-def course_edit():
-    return render_template('edit-course.html')
+@routes.route('/courses/edit-course/<id>', methods=['GET', 'POST'])
+def course_edit(id):
+    form = CourseForm()
+    details = model.course.open(id)
+    available_colleges = []
+    for element in model.college.all():
+        available_colleges.append(element[0])
+    form.college_code.choices = available_colleges
+    if request.method == 'GET':
+        form.course_code.data = details[0][0]
+        form.course_name.data = details[0][1]
+        form.college_code.data = details[0][2]
+        return render_template('edit-course.html', form = form)
+    elif request.method == 'POST' and form.validate():
+        course = model.course( course_name = form.course_name.data, college_code = form.college_code.data)
+        course.edit(id)
+        return redirect('/courses')
 
 @routes.route('/courses/course-details/<id>', methods=['GET', 'POST'])
 def course_open(id):

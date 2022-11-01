@@ -114,11 +114,9 @@ class course(object):
         cursor.execute(sql)
         mysql.connection.commit()
 
-    def edit(self, course_code):
+    def edit(self, id):
         cursor = mysql.connection.cursor()
-        sql = f"UPDATE courses SET course_name=%s, college_code = %s WHERE id=%s \
-                VALUES('{self.course_name}','{self.college_code}', {self.course_code}')" 
-
+        sql = f"UPDATE courses SET course_name='{self.course_name}', college_code = '{self.college_code}' WHERE course_code='{id}'"
         cursor.execute(sql)
         mysql.connection.commit()
 
