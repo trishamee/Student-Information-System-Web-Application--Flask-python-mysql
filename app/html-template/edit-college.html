@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
 </head>
 <body>
+   {% import "bootstrap/wtf.html" as wtf %}
 
 <!-- master layout starts here-->
 
@@ -110,7 +111,12 @@
 <div class="col-sm-12">
 <div class="card">
 <div class="card-body">
-<form>
+
+   {{ wtf.quick_form(form, url_for('.college_edit', id = form.college_code.data ),"post") }}
+
+
+
+<!-- <form>
 <div class="row">
 <div class="col-12">
 <h5 class="form-title"><span>College Details</span></h5>
@@ -132,7 +138,7 @@
 
 </div>
 </div>
-</form>
+</form> -->
 </div>
 </div>
 </div>

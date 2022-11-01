@@ -44,7 +44,7 @@ class student(object):
     def delete(cls,id):
         try:
             cursor = mysql.connection.cursor()
-            sql = f"DELETE from student where id= {id}"
+            sql = f"DELETE from student where id= '{id}'"
             cursor.execute(sql)
             mysql.connection.commit()
             return True
@@ -65,11 +65,9 @@ class college(object):
         cursor.execute(sql)
         mysql.connection.commit()
 
-    def edit(self, college_code):
+    def edit(self, id):
         cursor = mysql.connection.cursor()
-        sql = f"UPDATE colleges SET college_name=%s WHERE college_code=%s \
-                VALUES('{self.college_name}','{self.college_code}')" 
-
+        sql = f"UPDATE colleges SET college_name='{self.college_name}' WHERE college_code='{id}'" 
         cursor.execute(sql)
         mysql.connection.commit()
 

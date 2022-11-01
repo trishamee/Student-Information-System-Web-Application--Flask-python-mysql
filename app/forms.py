@@ -20,11 +20,3 @@ class CollegeForm(FlaskForm):
     college_code = StringField ('College Code', [validators.DataRequired()])
     college_name = StringField('College Name', [validators.DataRequired()])
     submit = SubmitField("Submit")
-
-class StudentEdit(FlaskForm):
-    id = StringField ('ID Number', [validators.DataRequired(), validators.Length(min=9, max=9)])
-    name = StringField('Name', [validators.DataRequired(), validators.Length(min=3)])
-    course_code = SelectField('Course', [validators.DataRequired()])
-    year = SelectField('Year', [validators.DataRequired()], choices = [('1', '1'),('2','2'),('3','3'),('4','4'), ('5','5'), ('Irregular','Irregular')])
-    gender = RadioField('Gender', [validators.DataRequired()], choices = [('Female', 'Female'), ('Male', 'Male')])
-    submit = SubmitField("Submit")
