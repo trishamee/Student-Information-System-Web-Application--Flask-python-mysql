@@ -34,8 +34,7 @@ class student(object):
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
-
-        sql = "SELECT * from student"
+        sql = "SELECT student.id, student.name, courses.course_name, student.year, student.gender FROM student INNER JOIN courses ON student.course_code = courses.course_code"
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
@@ -131,7 +130,7 @@ class course(object):
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
-        sql = "SELECT * from courses"
+        sql = "SELECT courses.course_code, courses.course_name, colleges.college_name FROM courses INNER JOIN colleges on courses.college_code = colleges.college_code "
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
