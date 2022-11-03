@@ -1,8 +1,3 @@
-/*
-Author       : Dreamguys
-Template Name: Preskool - Bootstrap Admin Template
-Version      : 1.0
-*/
 
 /*============================
  [Table of CSS]
@@ -43,7 +38,7 @@ body {
 	background-color: #fff;
 	color: #333;
 	font-family: 'Poppins', sans-serif;
-	font-size: 1rem;
+	font-size: 1.7rem;
 	height: 100%;
 	line-height: 1.5;
 	overflow-x: hidden;
@@ -57,6 +52,8 @@ h5,
 h6 {
 	font-family: 'Poppins', sans-serif;
 	margin-top: 0;
+	font-size: 200% !important;
+
 }
 a:hover,
 a:active,
@@ -1612,7 +1609,7 @@ footer p {
     position: fixed;
     top: 60px;
     transition: all 0.2s ease-in-out 0s;
-    width: 250px;
+    width: 225px;
     z-index: 1001;	
 }
 .sidebar.opened {
@@ -1823,7 +1820,7 @@ footer p {
 .page-header .breadcrumb {
     background-color: transparent;
     color: #6c757d;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 0;
     padding: 0;
