@@ -12,12 +12,6 @@
                   <li class="breadcrumb-item active">Courses</li>
                </ul>
             </div>
-            <div class="top-nav-search">
-               <form>
-                  <input type="text" class="form-control" placeholder="Search here">
-                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-               </form>
-            </div>
             <div class="col-auto text-right float-right ml-auto">
                <a href="{{ url_for('.course_add') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
             </div>
@@ -29,7 +23,7 @@
             <div class="card card-table">
                <div class="card-body">
                   <div class="table-responsive">
-                     <table class="table table-hover table-center mb-0 datatable">
+                     <table id = 'my_table' class="table table-hover table-center mb-0 datatable" style = 'width:auto'>
                         <thead>
                            <tr>
                               <th>Course Code</th>
@@ -38,6 +32,14 @@
                               <th class="text-right">Action</th>
                            </tr>
                         </thead>
+                        <tfoot style = 'display: table-header-group'>
+                           <tr>
+                              <th>Course Code</th>
+                              <th>Course Name</th>
+                              <th>College</th>
+                           </tr>
+                       </tfoot>
+                       <body>
                            {% for course in data %}
                            <tr>
                               <td><a href = "{{ url_for('.course_open', id = course[0] ) }}">{{course[0]}}</a></td>
@@ -45,16 +47,17 @@
                               <td>{{course[2]}}</td>
                               <td class="text-right">
                                  <div class="actions">
-                                 <a href="{{ url_for('.course_edit', id = course[0] ) }}" class="btn btn-sm bg-success-light mr-2">
+                                 <a href="{{ url_for('.course_edit', id = course[0] ) }}" class="btn btn-lg bg-success-light mr-2">
                                     <i class="fas fa-pen"></i>
                                  </a>
-                                 <a href="{{ url_for('.course_delete', id = course[0] ) }}" class="btn btn-sm bg-danger-light">
+                                 <a href="{{ url_for('.course_delete', id = course[0] ) }}" class="btn btn-lg bg-danger-light">
                                     <i class="fas fa-trash"></i>
                                  </a>
                                  </div>
                               </td>
                            </tr>
                         {% endfor %}
+                       </body>
                      </table>
                   </div>
                </div>
@@ -72,5 +75,36 @@
       <script src=" {{url_for('static', filename = 'js/bootstrap.min.js')}} "></script>
       <script src=" {{url_for('static', filename = 'js/jquery.slimscroll.min.js')}}"></script>
       <script src="{{url_for('static', filename = 'js/script.js')}}"></script>
-      <script src="{{url_for('static', filename = 'js/datatables.min.js')}}"></script>
+      <script src = "https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<script type = "text/javascript">
+      $(document).ready(function () {
+         // Setup - add a text input to each footer cell
+         $('#my_table tfoot th').each(function () {
+             var title = $(this).text();
+             $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+         });
+      
+         // DataTable
+         var table = $('#my_table').DataTable({
+            
+             initComplete: function () {
+                 // Apply the search
+                 this.api()
+                     .columns()
+                     .every(function () {
+                         var that = this;
+                         $('input', this.footer()).on('keyup change clear', function () {
+                             if (that.search() !== this.value) {
+                                 that.search(this.value).draw();
+                             }
+                         });
+                     });
+             },
+
+         });
+         $('#container').css( 'display', 'block' );
+            table.columns.adjust().draw();
+     });
+   </script>
 {% endblock %}

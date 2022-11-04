@@ -32,7 +32,11 @@
 
 html {
 	height: 100%;
+	/* font-size: 100%; */
 }
+
+
+
 body {
 	background-color: #fff;
 	color: #333;
@@ -144,12 +148,30 @@ ul, ol {
 	2. Table
 -----------------------*/
 
+/* datatable search bar on upper right */
+.dataTables_filter input {
+	font-family: 'Poppins', sans-serif;;
+    width: 230px !important; 
+}
+
+/* datatables search bar per column */
+tfoot input {
+	width: 100%;
+	font-family: 'Poppins', sans-serif;;
+	border-style: solid;
+	font-size: medium;
+	opacity: 70%;
+  }  
+
 .table {
-	color: #333;
+	color: rgb(0, 0, 0);
 	max-width: 100%;
 	margin-bottom: 0;
 	width: 100%;
+	table-layout:fixed;
+
 }
+
 .table-striped > tbody > tr:nth-of-type(2n+1) {
 	background-color: #f8f9fa;
 }
@@ -162,11 +184,12 @@ ul, ol {
 	border-top: 0;
 	padding: 10px 8px;
 }
-.table-nowrap td,
+/* .table-nowrap td,
 .table-nowrap th {
-	white-space: nowrap
-}
+	white-space: nowrap !important
+} */
 .table.dataTable {
+	table-layout:fixed;
 	border-collapse: collapse !important;
 	border: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -192,7 +215,7 @@ table.table td h2 a {
 	color: #333;
 }
 table.table td h2 a:hover {
-	color: #FFBC53;
+	color: #d69429;
 }
 table.table td h2 span {
 	color: #888;
@@ -213,8 +236,10 @@ table.table td h2 span {
 .table-hover tbody tr:hover {
 	background-color: #f7f7f7;
 }
+
+/* font sa table if i hover */
 .table-hover tbody tr:hover td {
-	color: #474648;
+	color:  #0b6ec5;
 }
 .table-striped thead tr {
 	border-color: transparent;
@@ -223,7 +248,7 @@ table.table td h2 span {
 	border-color: transparent;
 }
 .table-striped tbody tr:nth-of-type(even) {
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(29, 116, 179, 0.3);
 }
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: rgba(235, 235, 235, 0.4);
@@ -233,8 +258,9 @@ table.table td h2 span {
 }
 .table-bordered th,
 .table-bordered td {
-	border-color: rgba(0, 0, 0, 0.05);
+	border-color: rgba(0, 0, 0, 0.05); 
 }
+
 .card-table .card-body .table > thead > tr > th {
     border-top: 0;
 }
@@ -252,7 +278,7 @@ table.table td h2 span {
     white-space: nowrap;
 }
 .table .thead-light th {
-    color: #495057;
+    color: #000000;
     background-color: #f8f9fa;
     border-color: #eff2f7;
 }
@@ -432,9 +458,11 @@ button.bg-danger:hover {
 .text-muted {
     color: #757575 !important;
 }
+
+/* tng sa plus icon */
 .btn-primary {
 	background-color: #8B2F22;
-	border: 1px solid #8B2F22;
+	border: 8px solid #8B2F22;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -442,7 +470,7 @@ button.bg-danger:hover {
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
 	background-color: #8B2F22;
-	border: 1px solid #8B2F22;
+	border: 5px solid #8B2F22;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,
@@ -916,6 +944,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 div.dataTables_wrapper div.dataTables_info {
     padding-top: 25px;
 }
+
 
 /*-----------------
 	5. Select2
