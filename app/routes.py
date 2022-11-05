@@ -14,27 +14,11 @@ import app.model as model
 # from app.user.forms import UserForm
 
 routes = Blueprint('routes', __name__)
+
+#Dashboard
 @routes.route('/', methods=['GET', 'POST'])
 def dashboard():
     return render_template("index.html", title = 'Dashboard')
-
-
-# @login_required
-# def home():
-#     if request.method == 'POST':
-#         note = request.form.get('note')
-
-#         if len(note) < 1:
-#             flash('Note is too short!', category='error')
-#         else:
-#             new_note = Note(data=note, user_id=current_user.id)
-#             db.session.add(new_note)
-#             db.session.commit()
-#             flash('Note added!', category='success')
-
-#     return render_template("home.html", user=current_user)
-
-
 #Student
 @routes.route('/students', methods=[ 'GET', 'POST'])
 def stud_list():

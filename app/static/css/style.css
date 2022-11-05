@@ -36,7 +36,6 @@ html {
 }
 
 
-
 body {
 	background-color: #fff;
 	color: #333;
@@ -465,7 +464,7 @@ button.bg-danger:hover {
 /* tng sa plus icon */
 .btn-primary {
 	background-color: #8B2F22;
-	border: 8px solid #8B2F22;
+	border: 10px solid #8B2F22;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -473,7 +472,7 @@ button.bg-danger:hover {
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
 	background-color: #8B2F22;
-	border: 5px solid #8B2F22;
+	border: 10px solid #8B2F22;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,

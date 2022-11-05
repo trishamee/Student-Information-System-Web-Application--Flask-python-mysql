@@ -20,7 +20,36 @@
             <div class="col-sm-12">
                <div class="card">
                   <div class="card-body">
-                   {{ wtf.quick_form(form, url_for('.course_edit', id = form.course_code.data ),"post") }}
+
+
+                     <div class="row">
+                        <div class="col-12">
+                        <h5 class="form-title"><span>Subject Information</span></h5>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                        <label>Course Code</label>
+                        {{ form.course_code(class_="form-control") }}
+                     </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                               <label>College</label>
+                               {{ form.college_code(class_="form-control") }}
+                            </div>
+                         </div>
+                        <div class="col-12">
+                        <div class="form-group">
+                        <label>Course Name</label>
+                        {{ form.course_name(class_="form-control") }}
+                     </div>
+                        </div>
+                        <div class="col-12">
+                           {{ form.submit(class_="btn btn-primary" , style_="font-size: 1.5rem") }}
+                        </div>
+                        </div>
+
+
                   </div>
                </div>
             </div>
