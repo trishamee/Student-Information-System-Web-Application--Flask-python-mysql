@@ -14,7 +14,106 @@
          </div>
       </div>
    </div>
-</div>
+         <div class="row" style="justify-content: center">
+      <!-- number of students -->
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex" style = "padding: 1.5rem; margin-left: 3rem ;margin-right: 3rem">
+                     <div class="card bg-one w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-user-graduate"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>{{stud_num}}</h3>
+                                 <h6>Students</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+      <!--number of courses-->
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex" style = "padding: 1.5rem; margin-left: 3rem ;margin-right: 3rem">
+                     <div class="card bg-two w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-book-reader"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>{{course_num}}</h3>
+                                 <h6>Courses</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+      <!--number of colleges-->
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex" style = "padding: 1.5rem; margin-left: 3rem ;margin-right: 3rem">
+                     <div class="card bg-three w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-building"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>{{college_num}}</h3>
+                                 <h6>Colleges</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+         </div>
+      <!--second row-->
+         <div class="row" style = "justify-content: center;">
+      <!--Number of Students per college-->
+                  <div class="col-md-12">
+                     <div class="card card-chart">
+                        <div class="card-header">
+                           <div class="row align-items-center">
+                             <div class="col-6"> 
+                                 <h5 class="card-title">Number of Students per college</h5>
+                              </div>
+                              <div class="col-6"> 
+                                  <ul class="list-inline-group text-right mb-0 pl-0">
+                                 </ul> 
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-body">
+                           <div id="bar"></div>
+                        </div>
+                     </div>
+                  </div>
+         </div>
+
+         <div class="row" style = "justify-content: center;">
+      <!--number of courses per college-->
+                  <div class="col-md-12">
+                     <div class="card card-chart">
+                        <div class="card-header">
+                           <div class="row align-items-center">
+                           <div class="col-6"> 
+                                 <h5 class="card-title">Number of Students per college</h5>
+                              </div>
+                              <div class="col-6"> 
+                                 <ul class="list-inline-group text-right mb-0 pl-0">
+                                 </ul> 
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-body">
+                           <div id="bar"></div>
+                        </div>
+                     </div>
+                  </div>
+            </div>
+   </div>
+
+
+
 {% endblock %}
 
 {% block scripts%}

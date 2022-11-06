@@ -16,6 +16,10 @@
             </div>
          </div>
       </div>
+
+      <form  method="POST" >
+         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
       <div class="row">
          <div class="col-sm-12">
             <div class="card">
@@ -52,15 +56,15 @@
                            {{ form.course_code(class_="form-control") }}
                         </div>
                      </div>
-                     
                      <div class="col-12 col-sm-6">
                         {{ form.submit(class_="btn btn-primary" , style_="font-size: 1.5rem") }}
                      </div>
                    </div>
-               </div>               </div>
+               </div>               
             </div>
          </div>
-      </div>
+      </form>
+   </div>
    </div>
 </div>
 {% endblock %}

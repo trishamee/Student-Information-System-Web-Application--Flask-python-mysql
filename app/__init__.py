@@ -27,7 +27,6 @@ def create_app(test_config=None):
         BOOTSTRAP_SERVE_LOCAL=BOOTSTRAP_SERVE_LOCAL
     )
 
-
     bootstrap.init_app(app)
     mysql.init_app(app)
     CSRFProtect(app)
@@ -36,7 +35,7 @@ def create_app(test_config=None):
     from .auth import auth
 
     app.register_blueprint(routes, url_prefix='/')
-    app.register_blueprint(auth, url_prefix='/')
+    # app.register_blueprint(auth, url_prefix='/')
 
     #from .models import User, Note
 

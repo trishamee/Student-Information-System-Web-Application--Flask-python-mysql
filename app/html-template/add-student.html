@@ -17,6 +17,8 @@
          </div>
       </div>
       <div class="row">
+      <form action ="{{ url_for('.stud_add') }}" method="POST" >
+         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
          <div class="col-sm-12">
             <div class="card">
                <div class="card-body">
@@ -27,39 +29,39 @@
                      <div class="col-12 col-sm-6">
                         <div class="form-group">
                            <label>Student Id</label>
-                           {{ form.id(class_="form-control") }}
+                           {{ form.id(class_="validate form-control") }}
                         </div>
                      </div>
                      <div class="col-12 col-sm-6">
                            <div class="form-group">
                               <label>Year</label>
-                              {{ form.year(class_="form-control") }}
+                              {{ form.year(class_="validate form-control") }}
                            </div>   
                      </div>
                      <div class="col-12">
                         <div class="form-group">
                            <label>Name</label>
-                           {{ form.name(class_="form-control") }}
+                           {{ form.name(class_=" validate form-control") }}
                         </div>
                      </div>
                      <div class="col-12 col-sm-6">
                            <label>Gender</label>
-                           {{ form.gender(style_="margin-left: 2.5rem") }}
+                           {{ form.gender(class_= 'validate' ,style_="margin-left: 2.5rem") }}
                      </div>
                      <div class="col-12 col-sm-6">
                         <div class="form-group">
                            <label>Course</label>
-                           {{ form.course_code(class_="form-control") }}
+                           {{ form.course_code(class_=" validate form-control") }}
                         </div>
                      </div>
-                     
                      <div class="col-12 col-sm-6">
-                        {{ form.submit(class_="btn btn-primary" , style_="font-size: 1.5rem") }}
+                        {{ form.submit(class_=" validate btn btn-primary" , style_="font-size: 1.5rem") }}
                      </div>
                    </div>
                </div>
             </div>
          </div>
+      </form>
       </div>
    </div>
 </div>

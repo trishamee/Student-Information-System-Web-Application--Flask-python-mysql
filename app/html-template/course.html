@@ -51,9 +51,32 @@
                                  <a href="{{ url_for('.course_edit', id = course[0] ) }}" class="btn btn-lg bg-success-light mr-2">
                                     <i class="fas fa-pen"></i>
                                  </a>
-                                 <a href="{{ url_for('.course_delete', id = course[0] ) }}" class="btn btn-lg bg-danger-light">
+                                 <a href="#ConfirmModal{{course[0]}}" class="btn btn-lg bg-danger-light" data-toggle = 'modal'>
                                     <i class="fas fa-trash"></i>
                                  </a>
+                                       <!-- Modal HTML -->
+                                             <div id="ConfirmModal{{course[0]}}" class="modal fade">
+                                                <div class="modal-dialog modal-confirm">
+                                                   <div class="modal-content">
+                                                      <div class="modal-header flex-column">
+                                                         <div class="icon-box">
+                                                            <i class="fas fa-trash"></i>
+                                                         </div>						
+                                                         <h4 class="modal-title w-100">Are you sure?</h4>	
+                                                            <button type="button" class="close" data-dismiss="modal">x</button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                         <p>Do you really want to delete these records?</p>
+                                                         <p>This process cannot be undone.</p>
+                                                      </div>
+                                                      <div class="modal-footer justify-content-center">
+                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                         <a href="{{ url_for('.course_delete', id = course[0] ) }}" class="btn btn-danger">Delete</a>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>     
+                                       <!--End of Modal-->  
                                  </div>
                               </td>
                            </tr>

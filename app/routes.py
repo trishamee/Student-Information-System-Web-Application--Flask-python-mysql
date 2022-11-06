@@ -18,7 +18,14 @@ routes = Blueprint('routes', __name__)
 #Dashboard
 @routes.route('/', methods=['GET', 'POST'])
 def dashboard():
-    return render_template("index.html", title = 'Dashboard')
+    students = model.student.all()
+    student_num = len(students)
+    courses = model.course.all()    
+    course_num = len(courses)
+    colleges = model.college.all()    
+    college_num = len(colleges)
+    return render_template("index.html", title = 'Dashboard' , stud_num = student_num, course_num = course_num, college_num = college_num )
+
 #Student
 @routes.route('/students', methods=[ 'GET', 'POST'])
 def stud_list():
@@ -65,6 +72,7 @@ def stud_open(id):
 
 @routes.route('/students/delete/ <id>', methods=['GET','POST'])
 def stud_delete(id):
+    print(id)
     model.student.delete(id)
     return redirect('/students')
    

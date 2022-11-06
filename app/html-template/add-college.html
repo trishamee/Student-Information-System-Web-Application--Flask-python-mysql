@@ -16,11 +16,12 @@
             </div>
          </div>
       </div>
+      <form action ="{{ url_for('.college_add') }}" method="POST" >
+         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
       <div class="row">
          <div class="col-sm-12">
             <div class="card">
                <div class="card-body">
-
                   <div class="row">
                      <div class="col-12">
                      <h5 class="form-title"><span>College Details</span></h5>
@@ -40,10 +41,10 @@
                         {{ form.submit(class_="btn btn-primary" , style_="font-size: 1.5rem") }}
                      </div>
                      </div>
-
                </div>
             </div>
          </div>
+      </form>
       </div>
    </div>
 </div>
