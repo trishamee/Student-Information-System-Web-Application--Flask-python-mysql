@@ -1,17 +1,8 @@
-# from flask import Blueprint, render_template, request, flash, jsonify
-# from flask_login import login_required, current_user
-# from .models import Note
-# from . import db
-# import json
 
-#gikan sa flask demo:
-from flask import Blueprint,render_template, redirect, request, jsonify
+from flask import Blueprint,render_template, redirect, request, flash, jsonify
 from app.forms import StudentForm, CourseForm, CollegeForm
 import app.model as model
 
-#from . import user_bp
-# import app.models as models
-# from app.user.forms import UserForm
 
 routes = Blueprint('routes', __name__)
 
@@ -42,6 +33,7 @@ def stud_add():
     if form.validate():
         student = model.student(id= form.id.data, name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
         student.add()
+        flash('Student info has been added!')
         return redirect('/students')
     return render_template('add-student.html', form = form, title = 'Add Student')
 
@@ -63,6 +55,7 @@ def stud_edit(id):
     elif request.method == 'POST' and form.validate():
         student = model.student( name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
         student.edit(id)
+        flash('Student info has been updated!')
         return redirect('/students')
 
 @routes.route('/students/student-details/<id>', methods=['GET', 'POST'])
@@ -72,8 +65,8 @@ def stud_open(id):
 
 @routes.route('/students/delete/ <id>', methods=['GET','POST'])
 def stud_delete(id):
-    print(id)
     model.student.delete(id)
+    flash('Student has been deleted!')
     return redirect('/students')
    
 #Courses
@@ -92,6 +85,7 @@ def course_add():
     if form.validate():
         course = model.course(course_code= form.course_code.data, course_name = form.course_name.data, college_code = form.college_code.data)
         course.add()
+        flash('Course has been added!')
         return redirect('/courses')
     return render_template('add-course.html', form = form, title = 'Add Course')
 
@@ -111,6 +105,7 @@ def course_edit(id):
     elif request.method == 'POST' and form.validate():
         course = model.course( course_name = form.course_name.data, college_code = form.college_code.data)
         course.edit(id)
+        flash('Course has been updated!')
         return redirect('/courses')
 
 @routes.route('/courses/course-details/<id>', methods=['GET', 'POST'])
@@ -121,6 +116,7 @@ def course_open(id):
 @routes.route('/courses/delete/ <id>', methods=['GET','POST'])
 def course_delete(id):
     model.course.delete(id)
+    flash('Course has been deleted!')
     return redirect('/courses')
 
 
@@ -136,6 +132,7 @@ def college_add():
     if form.validate():
         college = model.college(college_code= form.college_code.data, college_name= form.college_name.data)
         college.add()
+        flash('College has been added!')
         return redirect('/colleges')
     return render_template('add-college.html', form = form, title = 'Add College')
 
@@ -150,6 +147,7 @@ def college_edit(id):
     elif request.method == 'POST' and form.validate():
         college = model.college( college_name = form.college_name.data)
         college.edit(id)
+        flash('College has been updated!')
         return redirect('/colleges')
 
 @routes.route('/colleges/college-details/<id>', methods=['GET', 'POST'])
@@ -160,4 +158,5 @@ def college_open(id):
 @routes.route('/colleges/delete/ <id>', methods=['GET','POST'])
 def college_delete(id):
     model.college.delete(id)
+    flash('College has been deleted!')
     return redirect('/colleges')
