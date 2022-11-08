@@ -82,7 +82,7 @@ class college(object):
     def all(cls):
         cursor = mysql.connection.cursor()
 
-        sql = "SELECT * from colleges"
+        sql = "SELECT * from colleges where college_code != 'None'"
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
@@ -93,7 +93,10 @@ class college(object):
             cursor = mysql.connection.cursor()
             sql = f"DELETE from colleges where college_code= '{id}'"
             cursor.execute(sql)
+            sql = f"Update courses set college_code = 'None' where college_code = '{id}'"
+            cursor.execute(sql)
             mysql.connection.commit()
+            
             return True
         except:
             return False
@@ -130,7 +133,7 @@ class course(object):
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
-        sql = "SELECT courses.course_code, courses.course_name, colleges.college_name FROM courses INNER JOIN colleges on courses.college_code = colleges.college_code "
+        sql = "SELECT courses.course_code, courses.course_name, colleges.college_name FROM courses INNER JOIN colleges on courses.college_code = colleges.college_code where course_code != 'None' "
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
@@ -140,7 +143,9 @@ class course(object):
     def delete(cls,id):
         try:
             cursor = mysql.connection.cursor()
-            sql = f"DELETE from courses where course_code= '{id}'"
+            sql = f"DELETE from courses where course_code= '{id}' "
+            cursor.execute(sql)
+            sql = f"Update student set course_code = 'None' where course_code = '{id}'"
             cursor.execute(sql)
             mysql.connection.commit()
             return True
