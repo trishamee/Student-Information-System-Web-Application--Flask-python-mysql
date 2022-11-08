@@ -17,7 +17,7 @@ if result:
     pass
 else:
      # there are no tables 
-    mycursor.execute("CREATE TABLE courses(course_code VARCHAR(100) NOT NULL,course_name VARCHAR(100), college_code VARCHAR(100), PRIMARY KEY (course_code))")
+    mycursor.execute("CREATE TABLE courses(course_code VARCHAR(100),course_name VARCHAR(100), college_code VARCHAR(100), PRIMARY KEY (course_code))")
     mysqldb.commit()
     lastid = mycursor.lastrowid
 mysqldb.close()
@@ -32,7 +32,7 @@ if result:
     pass
 else:
      # there are no tables
-    mycursor.execute("CREATE TABLE student(id CHAR(10) NOT NULL,name VARCHAR(100) NOT NULL, course_code VARCHAR(100) NOT NULL, year VARCHAR(10) NOT NULL, gender VARCHAR(10) NOT NULL , PRIMARY KEY (id))")
+    mycursor.execute("CREATE TABLE student(id CHAR(10),name VARCHAR(100) , course_code VARCHAR(100), year VARCHAR(10) , gender VARCHAR(10) , PRIMARY KEY (id))")
 mysqldb.close()
 
 #Create table for college
@@ -45,7 +45,7 @@ if result:
     pass
 else:
      # there are no tables 
-    mycursor.execute("CREATE TABLE colleges(college_code VARCHAR(100) NOT NULL,college_name VARCHAR(100), PRIMARY KEY (college_code))")
+    mycursor.execute("CREATE TABLE colleges(college_code VARCHAR(100) ,college_name VARCHAR(100), PRIMARY KEY (college_code))")
     mysqldb.commit()
     lastid = mycursor.lastrowid
 mysqldb.close()

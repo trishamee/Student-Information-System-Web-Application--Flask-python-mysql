@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, validators, SubmitField, SelectF
 
 
 class StudentForm(FlaskForm):
-    id = StringField ('ID Number', [validators.DataRequired(), validators.Length(min=9, max=9)])
+    id = StringField ('ID Number', [validators.DataRequired(), validators.Length(min=9, max=9), validators.Regexp('^[0-9]{4}-[0-9]{4}$')])
     name = StringField('Name', [validators.DataRequired(), validators.Length(min=3)])
     course_code = SelectField('Course', [validators.DataRequired()])
     year = SelectField('Year', [validators.DataRequired()], choices = ['1','2','3','4','5','Irregular'])
