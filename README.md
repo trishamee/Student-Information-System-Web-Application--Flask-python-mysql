@@ -1,8 +1,11 @@
 # Student-Information-System-Web-Application--Flask-python-mysql
 
-Please run create_db.py before running Flask. Thank you (づ ◕‿◕ )づ
+(!) Please run create_db.py before running Flask. Thank you (づ ◕‿◕ )づ
 
-Project requirements:
+--> Run sample_populate.py to populate database. 
+
+
+•················· Project requirements: ·················•
 
 Web version of Simple Student Information System
 
@@ -27,3 +30,5 @@ Tables:
 CRUDL for student, course, college
 use MySQL
 Search by fields
+
+╰(⸝⸝⸝´꒳`⸝⸝⸝)╯

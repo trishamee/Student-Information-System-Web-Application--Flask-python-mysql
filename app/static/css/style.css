@@ -212,7 +212,6 @@ table.table td h2 a:hover {
 table.table td h2 span {
 	color: #888;
 	display: block;
-	font-size: 12px;
 	margin-top: 3px;
 }
 
@@ -223,6 +222,7 @@ table.table td h2 span {
 }
 .table tbody tr {
 	border-bottom: 1px solid #c5bcbc;
+	font-size: 1.5rem;
 }
 .table.table-center td,
 .table.table-center th {
