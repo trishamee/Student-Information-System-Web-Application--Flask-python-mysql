@@ -40,10 +40,16 @@
                               {{ form.year(class_="form-control") }}
                            </div>   
                      </div>
-                     <div class="col-12">
+                     <div class="col-12 col-sm-6">
                         <div class="form-group">
-                           <label>Name</label>
-                           {{ form.name(class_="form-control") }}
+                           <label>First Name</label>
+                           {{ form.firstname(class_="form-control") }}
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Last Name</label>
+                           {{ form.lastname(class_="form-control") }}
                         </div>
                      </div>
                      <div class="col-12 col-sm-6">

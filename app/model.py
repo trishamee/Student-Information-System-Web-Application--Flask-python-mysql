@@ -2,24 +2,25 @@ from app import mysql
 
 class student(object):
 
-    def __init__(self, id = None, name = None, course_code = None, year = None, gender =None ):
+    def __init__(self, id = None, firstname = None, lastname = None, course_code = None, year = None, gender =None ):
         self.id = id
-        self.name = name
+        self.firstname = firstname
+        self.lastname = lastname
         self.course_code = course_code
         self.year = year
         self.gender = gender
 
     def add(self):
         cursor = mysql.connection.cursor()
-        sql = f"INSERT INTO student(id, name, course_code, year, gender) \
-                VALUES('{self.id}','{self.name}','{self.course_code}', '{self.year}', '{self.gender}')" 
+        sql = f"INSERT INTO student(id, firstname, lastname, course_code, year, gender) \
+                VALUES('{self.id}','{self.firstname}','{self.lastname}','{self.course_code}', '{self.year}', '{self.gender}')" 
 
         cursor.execute(sql)
         mysql.connection.commit()
 
     def edit(self, id):
         cursor = mysql.connection.cursor()
-        sql = f"UPDATE student SET name='{self.name}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}' WHERE id='{id}' " 
+        sql = f"UPDATE student SET firstname='{self.firstname}' lastname = '{self.lastname}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}' WHERE id='{id}' " 
         cursor.execute(sql)
         mysql.connection.commit()
 
@@ -34,7 +35,7 @@ class student(object):
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
-        sql = "SELECT student.id, student.name, courses.course_name, student.year, student.gender FROM student INNER JOIN courses ON student.course_code = courses.course_code"
+        sql = "SELECT student.id, student.firstname, student.lastname, courses.course_name, student.year, student.gender FROM student INNER JOIN courses ON student.course_code = courses.course_code"
         cursor.execute(sql)
         result = cursor.fetchall()
         return result

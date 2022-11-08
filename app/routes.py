@@ -31,7 +31,7 @@ def stud_add():
     form = StudentForm()
     form.course_code.choices = available_courses
     if form.validate():
-        student = model.student(id= form.id.data, name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
+        student = model.student(id= form.id.data, firstname = form.firstname.data, lastname = form.lastname.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
         student.add()
         flash('Student info has been added!')
         return redirect('/students')
@@ -47,13 +47,14 @@ def stud_edit(id):
     form.course_code.choices = available_courses
     if request.method == 'GET':
         form.id.data = details[0][0]
-        form.name.data = details[0][1]
-        form.course_code.data = details[0][2]
-        form.year.data = details[0][3]
-        form.gender.data = details[0][4]
+        form.firstname.data = details[0][1]
+        form.lastname.data = details[0][2]
+        form.course_code.data = details[0][3]
+        form.year.data = details[0][4]
+        form.gender.data = details[0][5]
         return render_template('edit-student.html', form = form ,title = 'Edit Student')
     elif request.method == 'POST' and form.validate():
-        student = model.student( name = form.name.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
+        student = model.student( firstname = form.firstname.data, lastname = form.lastname.data , course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
         student.edit(id)
         flash('Student info has been updated!')
         return redirect('/students')

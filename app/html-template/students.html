@@ -57,10 +57,10 @@
                         {% for student in data %}
                            <tr>
                               <td><a href = "{{ url_for('.stud_open', id = student[0] ) }}">{{student[0]}}</a></td>
-                              <td>{{student[1]}}</td>
-                              <td>{{student[2]}}</td>
+                              <td>{{student[1]}}&nbsp{{student[2]}}</td>
                               <td>{{student[3]}}</td>
                               <td>{{student[4]}}</td>
+                              <td>{{student[5]}}</td>
                               <td class="text-center">
                               <div class="actions">
                                  <a href="{{ url_for('.stud_edit', id = student[0] ) }}" class="btn btn-lg bg-success-light mr-2">
