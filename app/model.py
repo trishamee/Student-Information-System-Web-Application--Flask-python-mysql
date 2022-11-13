@@ -20,7 +20,7 @@ class student(object):
 
     def edit(self, id):
         cursor = mysql.connection.cursor()
-        sql = f"UPDATE student SET firstname='{self.firstname}' lastname = '{self.lastname}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}' WHERE id='{id}' " 
+        sql = f"UPDATE student SET firstname='{self.firstname}', lastname = '{self.lastname}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}' WHERE id='{id}' " 
         cursor.execute(sql)
         mysql.connection.commit()
 
