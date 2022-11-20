@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, validators, SubmitField, SelectField, RadioField , HiddenField
+from wtforms import StringField, validators, SubmitField, SelectField, RadioField , HiddenField
 
 
 class StudentForm(FlaskForm):
@@ -9,7 +9,7 @@ class StudentForm(FlaskForm):
     course_code = SelectField('Course', [validators.DataRequired()])
     year = SelectField('Year', [validators.DataRequired()], choices = ['1','2','3','4','5','Irregular'])
     gender = RadioField('Gender', [validators.DataRequired()], choices = ['Female', 'Male'])
-    prof_url = HiddenField('prof_url', render_kw = {'id': 'prof_url'})
+    prof_url = HiddenField('prof_url', [validators.DataRequired()], render_kw = {'id': 'prof_url'})
     submit = SubmitField("Submit")
 
 class CourseForm(FlaskForm):
