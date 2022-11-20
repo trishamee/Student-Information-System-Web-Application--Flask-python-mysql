@@ -31,7 +31,7 @@ def stud_add():
     form = StudentForm()
     form.course_code.choices = available_courses
     if form.validate():
-        student = model.student(id= form.id.data, firstname = form.firstname.data, lastname = form.lastname.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
+        student = model.student(id= form.id.data, firstname = form.firstname.data, lastname = form.lastname.data, course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data, prof_url = form.prof_url.data)
         student.add()
         flash('Student info has been added!')
         return redirect('/students')
@@ -52,9 +52,10 @@ def stud_edit(id):
         form.course_code.data = details[0][3]
         form.year.data = details[0][4]
         form.gender.data = details[0][5]
+        form.prof_url.data = details[0][6]
         return render_template('edit-student.html', form = form ,title = 'Edit Student')
     elif request.method == 'POST' and form.validate():
-        student = model.student( firstname = form.firstname.data, lastname = form.lastname.data , course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data)
+        student = model.student( firstname = form.firstname.data, lastname = form.lastname.data , course_code = form.course_code.data,  year  =form.year.data, gender = form.gender.data, prof_url = form.prof_url.data)
         student.edit(id)
         flash('Student info has been updated!')
         return redirect('/students')

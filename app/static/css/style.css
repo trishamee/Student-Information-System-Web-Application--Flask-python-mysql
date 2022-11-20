@@ -82,6 +82,35 @@ ul, ol {
 	list-style: none;
 }
 
+.profile-picture {
+	border-radius: 5px;
+	padding: 2px;
+	width: 50px !important; 
+	height: 50px !important;
+
+  }
+  
+
+.profile-detail {
+	border-radius: 5px;
+	width: 250px;
+	height: 250px;
+	margin-top: 65px;
+	margin-left: 10px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+}
+
+.upload-button{
+	background-color: #8B2F22;
+	border: 10px solid #8B2F22;
+	color: #ffffff;
+	border-radius: 3px;
+	margin-bottom: 5px;
+	width: 250px;
+	margin-left: 10px;
+}
+  
 /*-----------------
 	2. Modal
 -----------------------*/
@@ -175,6 +204,8 @@ ul, ol {
 	font-size: medium;
 }
 
+
+
 /*-----------------
 	3. Table
 -----------------------*/
@@ -200,7 +231,7 @@ tfoot input {
 	border-collapse: collapse !important;
 	border: 1px solid;
 	border-color: rgb(199, 198, 198);
-	text-align: center;
+	text-align: left;
 }
 
 table.table td h2 a {
@@ -234,7 +265,7 @@ table.table td h2 span {
 
 /* font sa table if i hover */
 .table-hover tbody tr:hover td {
-	color:  #7d2b14;
+	color:  #2040c1;
 }
 
 .table-bordered {

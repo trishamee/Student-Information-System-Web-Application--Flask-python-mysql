@@ -2,25 +2,25 @@ from app import mysql
 
 class student(object):
 
-    def __init__(self, id = None, firstname = None, lastname = None, course_code = None, year = None, gender =None ):
+    def __init__(self, id = None, firstname = None, lastname = None, course_code = None, year = None, gender =None, prof_url = None ):
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.course_code = course_code
         self.year = year
         self.gender = gender
+        self.prof_url = prof_url
 
     def add(self):
         cursor = mysql.connection.cursor()
-        sql = f"INSERT INTO student(id, firstname, lastname, course_code, year, gender) \
-                VALUES('{self.id}','{self.firstname}','{self.lastname}','{self.course_code}', '{self.year}', '{self.gender}')" 
-
+        sql = f"INSERT INTO student(id, firstname, lastname, course_code, year, gender, prof_url) \
+                VALUES('{self.id}','{self.firstname}','{self.lastname}','{self.course_code}', '{self.year}', '{self.gender}', '{self.prof_url}')" 
         cursor.execute(sql)
         mysql.connection.commit()
 
     def edit(self, id):
         cursor = mysql.connection.cursor()
-        sql = f"UPDATE student SET firstname='{self.firstname}', lastname = '{self.lastname}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}' WHERE id='{id}' " 
+        sql = f"UPDATE student SET firstname='{self.firstname}', lastname = '{self.lastname}', course_code ='{self.course_code}', year = '{self.year}' , gender ='{self.gender}', prof_url = '{self.prof_url}' WHERE id='{id}' " 
         cursor.execute(sql)
         mysql.connection.commit()
 
@@ -35,7 +35,7 @@ class student(object):
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
-        sql = "SELECT student.id, student.firstname, student.lastname, courses.course_name, student.year, student.gender FROM student INNER JOIN courses ON student.course_code = courses.course_code"
+        sql = "SELECT student.id, student.firstname, student.lastname, courses.course_name, student.year, student.gender, student.prof_url FROM student INNER JOIN courses ON student.course_code = courses.course_code"
         cursor.execute(sql)
         result = cursor.fetchall()
         return result

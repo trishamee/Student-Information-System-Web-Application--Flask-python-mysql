@@ -1,8 +1,9 @@
 from flask import Flask,render_template
 from flask_mysql_connector import MySQL
 from flask_bootstrap import Bootstrap
-from config import DB_USERNAME, DB_PASSWORD, DB_NAME, DB_HOST, SECRET_KEY, BOOTSTRAP_SERVE_LOCAL
+from config import DB_USERNAME, DB_PASSWORD, DB_NAME, DB_HOST, SECRET_KEY, BOOTSTRAP_SERVE_LOCAL, CLOUD_NAME, API_KEY, API_SECRET
 from flask_wtf.csrf import CSRFProtect
+import cloudinary
 
 mysql = MySQL()
 bootstrap = Bootstrap()
@@ -17,6 +18,11 @@ def create_app(test_config=None):
     # note that we set the 404 status explicitly
         return render_template('error-404.html'), 404
 
+    cloudinary.config(
+        CLOUD_NAME = CLOUD_NAME,
+        API_KEY = API_KEY,
+        API_SECRET = API_SECRET
+    )
 
     app.config.from_mapping(
         SECRET_KEY=SECRET_KEY,
