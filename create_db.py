@@ -33,7 +33,7 @@ if result:
     pass
 else:
      # there are no tables
-    mycursor.execute("CREATE TABLE student(id CHAR(10),firstname VARCHAR(100) , lastname VARCHAR(100) , course_code VARCHAR(100), year VARCHAR(10) , gender VARCHAR(10) , prof_url VARCHAR(100), PRIMARY KEY (id))")
+    mycursor.execute("CREATE TABLE student(id CHAR(10),firstname VARCHAR(100) , lastname VARCHAR(100) , course_code VARCHAR(100), year VARCHAR(10) , gender VARCHAR(10) , prof_url VARCHAR(500), PRIMARY KEY (id))")
 mysqldb.close()
 
 #Create table for college
